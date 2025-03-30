@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 119a118cdde2fb84c8a46d7ad4ef2d23, type: 3}
+  m_Name: Bookshelf config
+  m_EditorClassIdentifier: 
+  bookConfigs:
+  - {fileID: 11400000, guid: 8f354e0de08dbe541bd29ba6fa196baa, type: 2}
+  - {fileID: 11400000, guid: ca47970ca7e06ab4bbd526fc572cea42, type: 2}
+  - {fileID: 11400000, guid: 58d0b0b054a55a24a95a92b1b5df54d7, type: 2}
+  - {fileID: 11400000, guid: 8eef3def4572c514980537ca755889f8, type: 2}
+  - {fileID: 11400000, guid: 50e2d7b931dafce4d9fa949d31bbf6ce, type: 2}
+  - {fileID: 11400000, guid: 2fa9e9dbb0b7f8e45be522c9a6704c62, type: 2}
+  - {fileID: 11400000, guid: f28a3bef785e67f4fbdf54a7f603b171, type: 2}
+  - {fileID: 11400000, guid: a59d25dfd7d5fdc4f830a8c460ca6ffd, type: 2}

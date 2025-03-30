@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f2e5adf4ee4503408536004b2867ed9, type: 3}
+  m_Name: Guilty Gears
+  m_EditorClassIdentifier: 
+  BookTitle: Guilty Gears
+  BookDescription: "They call you a legend, Tech Boy \u2014 a master of war, wielding
+    artifical intelligence that rival the strongest of heroes. But I know the game
+    you play.\n\nYou said it was to protect them.\n\nI know what you did to your
+    family.\n\nI know where you got your heart."
+  BookAnswer: war, game, shield, heart

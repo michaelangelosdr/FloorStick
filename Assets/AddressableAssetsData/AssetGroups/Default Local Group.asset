@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Default Local Group
+  m_EditorClassIdentifier: 
+  m_GroupName: Default Local Group
+  m_GUID: 51a9f2b92a0a26d4e91a04af281e051a
+  m_SerializeEntries:
+  - m_GUID: 1bdbf05df9db76043b1a80d2c21fbb6c
+    m_Address: spinner_input_controller
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 347280e1ce433ff43ad1d52877926ceb
+    m_Address: SpinnerInputItem
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b0b0930b8c33e624eadb896b483aebc3
+    m_Address: PlayerOneChapterOne
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c6fc3715d0c347149bcf55a1a8a31066
+    m_Address: BookshelfBook
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: b774dcc4f8fd21e42a8aeed637521573, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 05cfcf6c37ffa6b4fb7414a8c8f8fa92, type: 2}
+    - {fileID: 11400000, guid: 99fc78c165f45de4dad11a8a7e040502, type: 2}
