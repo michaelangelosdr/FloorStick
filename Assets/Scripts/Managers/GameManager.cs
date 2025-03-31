@@ -6,6 +6,9 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     public GameStateIdEnum startState;
 
+    [SerializeField]
+    public InventoryController InventoryController;
+
     private PlayerType playerType;
     public PlayerType PlayerType
     { 
@@ -19,6 +22,8 @@ public class GameManager : MonoBehaviour
 
     public void Initialize()
     {
+        InventoryController = InventoryController.Instance;
+        InventoryController.Initialize();
         stateMachineManager = StateMachineManager.Instance.Initialize();
         StateMachineManager.Instance.AddNewStateMachine(StateMachineId.Game, new GameStateMachine(this, (int)startState));
     }

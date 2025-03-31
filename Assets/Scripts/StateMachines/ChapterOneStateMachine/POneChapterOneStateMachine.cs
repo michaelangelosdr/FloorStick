@@ -65,6 +65,8 @@ namespace Game.ChapterOne.PlayerOne.States
             chapterManager.doorController.SetNumpadLockState(true);
             chapterManager.doorController.SetDoorLock(true);
 
+            InventoryController.Instance.AddItem(InventoryItemId.POneChone_Note_1);
+
             return base.OnStart();
         }
     }

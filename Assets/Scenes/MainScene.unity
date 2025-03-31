@@ -275,12 +275,27 @@ PrefabInstance:
     - target: {fileID: 256232627900035284, guid: b0b0930b8c33e624eadb896b483aebc3,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 90.75309
+      value: 90.75308
       objectReference: {fileID: 0}
     - target: {fileID: 256232627900035284, guid: b0b0930b8c33e624eadb896b483aebc3,
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -95.99788
+      objectReference: {fileID: 0}
+    - target: {fileID: 374135007497854388, guid: b0b0930b8c33e624eadb896b483aebc3,
+        type: 3}
+      propertyPath: m_Alpha
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 374135007497854388, guid: b0b0930b8c33e624eadb896b483aebc3,
+        type: 3}
+      propertyPath: m_Interactable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 374135007497854388, guid: b0b0930b8c33e624eadb896b483aebc3,
+        type: 3}
+      propertyPath: m_BlocksRaycasts
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 385848805117902248, guid: b0b0930b8c33e624eadb896b483aebc3,
         type: 3}
@@ -852,6 +867,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -83.97171
       objectReference: {fileID: 0}
+    - target: {fileID: 4809283258726564940, guid: b0b0930b8c33e624eadb896b483aebc3,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 661427979}
     - target: {fileID: 5068843555090275407, guid: b0b0930b8c33e624eadb896b483aebc3,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -1145,7 +1165,7 @@ PrefabInstance:
     - target: {fileID: 7362283359724850591, guid: b0b0930b8c33e624eadb896b483aebc3,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 90.75309
+      value: 90.75308
       objectReference: {fileID: 0}
     - target: {fileID: 7362283359724850591, guid: b0b0930b8c33e624eadb896b483aebc3,
         type: 3}
@@ -1549,6 +1569,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startState: 2
+  InventoryController: {fileID: 0}
 --- !u!1 &596434415
 GameObject:
   m_ObjectHideFlags: 0
@@ -2099,7 +2120,7 @@ GameObject:
   - component: {fileID: 1163449579}
   m_Layer: 0
   m_Name: CanvasOverlay
-  m_TagString: Untagged
+  m_TagString: CanvasOverlay
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2172,7 +2193,7 @@ Canvas:
   m_GameObject: {fileID: 1163449577}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 1
+  m_RenderMode: 0
   m_Camera: {fileID: 661427979}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -2181,10 +2202,10 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 11
+  m_SortingOrder: 15
   m_TargetDisplay: 0
 --- !u!1 &1197898842
 GameObject:

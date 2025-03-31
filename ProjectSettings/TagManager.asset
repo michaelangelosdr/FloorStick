@@ -7,6 +7,7 @@ TagManager:
   - UIRoot
   - GameRoot
   - GameManager
+  - CanvasOverlay
   layers:
   - Default
   - TransparentFX

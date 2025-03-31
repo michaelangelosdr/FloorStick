@@ -9,7 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3892d8a362007dc48a472d319273790b, type: 3}
-  m_Name: POneChapterOne Config
+  m_Script: {fileID: 11500000, guid: be379419f0c94ad4fab3c3b1b208227e, type: 3}
+  m_Name: POneChone_Note_2
   m_EditorClassIdentifier: 
-  InitialState: 1
+  inventoryItemId: POneChone_Note_2
+  inventoryIcon: {fileID: 21300000, guid: 4329667927abc4b0a8a1f46cb06ea830, type: 3}
