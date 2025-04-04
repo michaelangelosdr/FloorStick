@@ -8,4 +8,7 @@ public class InventoryItemData : ScriptableObject
 
     [SerializeField]
     public Sprite inventoryIcon;
+
+    [SerializeField]
+    public bool isDraggable;
 }

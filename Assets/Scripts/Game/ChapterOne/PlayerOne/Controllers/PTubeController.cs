@@ -47,9 +47,16 @@ namespace Game.ChapterOne.PlayerOne.Controllers
         [SerializeField]
         private PTubeStateKeys pTubeKeys;
 
+        [SerializeField]
+        public Button cryptexButton;
+
+        [SerializeField]
+        public Button letterButton;
+
         private UnityAction onAnswerKeyCorrect;
         private int currentStateIdx = -1;
         private bool isLocked;
+        private bool isOpened;
 
         public void Initialize(UnityAction onAnswerKeyCorrect, int initialState = 0)
         {
@@ -57,6 +64,9 @@ namespace Game.ChapterOne.PlayerOne.Controllers
             TubeGameScreen.Initialize();
             numpadController.Initialize(OnNumpadSubmitClicked);
             currentStateIdx = initialState;
+            doorButton.onClick.AddListener(OnDoorButtonClicked);
+            cryptexButton.onClick.AddListener(OnCryptexButtonClicked);
+            letterButton.onClick.AddListener(OnLetterButtonClicked);
             UpdateDisplays();
         }
 
@@ -97,7 +107,20 @@ namespace Game.ChapterOne.PlayerOne.Controllers
             this.isLocked = isLocked;
             tubeStateTxt.text = isLocked ? "Locked" : "Unlocked";
             doorButton.enabled = !isLocked;
+            doorButton.gameObject.SetActive(true);
             ResetDoor();
+        }
+
+        private void OnDoorButtonClicked()
+        {
+            isOpened = !isOpened;
+            doorClosedState.SetActive(!isOpened);
+            doorOpenState.SetActive(isOpened);
+
+            if(isOpened)
+            {
+                doorButton.gameObject.SetActive(false);
+            }
         }
 
         public void ResetDoor()
@@ -115,7 +138,7 @@ namespace Game.ChapterOne.PlayerOne.Controllers
         {
             foreach (Transform t in itemContainer)
             {
-                GameObject.Destroy(t.gameObject);
+                //GameObject.Destroy(t.gameObject);
             }
         }
 
@@ -125,6 +148,22 @@ namespace Game.ChapterOne.PlayerOne.Controllers
             numpadStateTxt.text = pTubeKeys.tubeStateKeyes[currentStateIdx];
         }
 
+        private void OnCryptexButtonClicked()
+        {
+            cryptexButton.gameObject.SetActive(false);
+            InventoryController.Instance.AddItem(InventoryItemId.Cryptex);
+            InventoryController.Instance.ShowInventory(true);
+        }
+
+        private void OnLetterButtonClicked()
+        {
+            letterButton.gameObject.SetActive(false);
+            InventoryController.Instance.AddItem(InventoryItemId.POneChone_Note_1);
+            SetTubeDoorState(true);
+            ResetDoor();
+
+            InventoryController.Instance.ShowInventory(true);
+        }
 
         public void Destroy()
         {

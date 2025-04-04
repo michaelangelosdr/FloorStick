@@ -26,6 +26,12 @@ public class InventoryController : MonoBehaviour
     private Button inventoryToggleBtn;
 
     [SerializeField]
+    private Image dragImageObject;
+
+    [SerializeField]
+    private RectTransform dragImageObjectContainer;
+
+    [SerializeField]
     private GameObject inventoryPopup;
 
     [SerializeField]
@@ -43,9 +49,13 @@ public class InventoryController : MonoBehaviour
         }
     }
 
+    public string curHeldItemId;
+
     private Dictionary<string, InventoryItemData> currentInventoryItems;
 
     private List<InventoryItemController> inventoryItemControllers;
+
+    private bool isDragging;
 
     public void Initialize(bool isShowInventory = false)
     {
@@ -67,7 +77,6 @@ public class InventoryController : MonoBehaviour
 
         InventoryItemData itemToGet = itemCollection.ItemList[idx];
         currentInventoryItems.Add(itemToGet.inventoryItemId, itemToGet);
-        UpdateInventoryDisplays();
     }
 
     public void RemoveItem(string itemId)
@@ -75,20 +84,24 @@ public class InventoryController : MonoBehaviour
         if (currentInventoryItems.ContainsKey(itemId))
         {
             currentInventoryItems.Remove(itemId);
-            UpdateInventoryDisplays();
         }
     }
 
-    public void OnShowInventoryToggleClicked()
+    private void OnShowInventoryToggleClicked()
     {
-        isShowInventory = !isShowInventory;
+        ShowInventory(!isShowInventory);
+    }
+
+    public void ShowInventory(bool isShow)
+    {
+        isShowInventory = isShow;
 
         if (isShowInventory)
         {
             UpdateInventoryDisplays();
         }
 
-        inventoryPopup.gameObject.SetActive(isShowInventory);
+        inventoryPopup.SetActive(isShowInventory);
     }
 
     public void UpdateInventoryDisplays()
@@ -109,6 +122,7 @@ public class InventoryController : MonoBehaviour
     {
         for (int i = 0; i < inventoryItemControllers.Count; i++)
         {
+            inventoryItemControllers[i].SetActiveState(false);
             inventoryItemControllers[i].gameObject.SetActive(false);
         }
     }
@@ -117,15 +131,42 @@ public class InventoryController : MonoBehaviour
     {
         for (int i = 0; i < inventoryItemControllers.Count; i++)
         {
-            if (!inventoryItemControllers[i].gameObject.activeInHierarchy)
+            if (!inventoryItemControllers[i].IsUsed)
             {
+                inventoryItemControllers[i].SetActiveState(true);
+                inventoryItemControllers[i].gameObject.SetActive(true);
                 return inventoryItemControllers[i];
             }
         }
 
         InventoryItemController InventoryItem = Resources.Load<InventoryItemController>("Prefabs/UI/InventoryItem");
         InventoryItem = Instantiate(InventoryItem, inventoryItemContainer);
+        InventoryItem.SetActiveState(true);
+        InventoryItem.gameObject.SetActive(true);
         inventoryItemControllers.Add(InventoryItem);
+
         return InventoryItem;
+    }
+
+    public void OnItemDragStart(InventoryItemData inventoryItem)
+    {
+        isDragging = true;
+        dragImageObject.sprite = inventoryItem.inventoryIcon;
+        curHeldItemId = inventoryItem.inventoryItemId;
+    }
+
+    public void OnItemDragEnd()
+    {
+        isDragging = false;
+        dragImageObject.rectTransform.position = dragImageObjectContainer.position;
+        curHeldItemId = string.Empty;
+    }
+
+    public void Update()
+    {
+        if (isDragging)
+        {
+            dragImageObject.rectTransform.position = Input.mousePosition;
+        }
     }
 }

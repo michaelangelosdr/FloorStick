@@ -11,6 +11,19 @@ public class InventoryItemController : MonoBehaviour
 
     public InventoryItemData InventoryItemData;
 
+    private bool isUsed;
+    public bool IsUsed
+    {
+        get
+        {
+            return isUsed;
+        }
+    }
+
+    public void SetActiveState(bool isState)
+    {
+        this.isUsed = isState;
+    }
 
     public void SetItemData(InventoryItemData inventoryItemData)
     {
@@ -27,9 +40,24 @@ public class InventoryItemController : MonoBehaviour
         glowImage.gameObject.SetActive(true);
     }
 
+    public void OnBeginDrag()
+    {
+        if (InventoryItemData.isDraggable)
+        {
+            InventoryController.Instance.OnItemDragStart(InventoryItemData);
+        }
+    }
+
+    public void OnEndDrag()
+    {
+        if (InventoryItemData.isDraggable)
+        {
+            InventoryController.Instance.OnItemDragEnd();
+        }
+    }
+
     public void OnPointerExit()
     {
         glowImage.gameObject.SetActive(false);
-
     }
 }

@@ -56,17 +56,16 @@ namespace Game.ChapterOne.PlayerOne.States
 
         public override UniTask OnStart()
         {
-            // InventoryManager.Clear();
             chapterManager.pTubeController.ClearItemsInTube();
             chapterManager.pTubeController.SetPTubeState(Controllers.PTubeController.PTubeStates.Initial_State);
             chapterManager.pTubeController.SetTubeDoorState(true);
+            chapterManager.pTubeController.cryptexButton.gameObject.SetActive(false);
+            chapterManager.pTubeController.letterButton.gameObject.SetActive(true);
             chapterManager.tableController.SetCryptexState(false);
             chapterManager.tableController.SetGemState(false);
             chapterManager.doorController.SetNumpadLockState(true);
             chapterManager.doorController.SetDoorLock(true);
-
-            InventoryController.Instance.AddItem(InventoryItemId.POneChone_Note_1);
-
+          
             return base.OnStart();
         }
     }
@@ -84,12 +83,10 @@ namespace Game.ChapterOne.PlayerOne.States
         {
             chapterManager.pTubeController.ClearItemsInTube();
             chapterManager.pTubeController.SetPTubeState(Controllers.PTubeController.PTubeStates.Locked_State);
-            chapterManager.pTubeController.SetTubeDoorState(true);
+            chapterManager.pTubeController.SetTubeDoorState(false);
             chapterManager.pTubeController.SetNumpadLock(true);
+            chapterManager.pTubeController.cryptexButton.gameObject.SetActive(true);
             chapterManager.pTubeController.UpdateDisplays();
-
-            // Inventory manager.Add("Cryptex")
-            // InventoryManager.Add("Note");
 
             return base.OnStart();
         }
